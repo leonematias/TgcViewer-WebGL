@@ -31,8 +31,8 @@ Example1.prototype.init = function() {
 	//this.scene = loader.loadSceneFromUrl("Media/models/Robot/Robot-TgcScene.xml");
 	//this.scene = loader.loadSceneFromUrl("Media/models/Box/Box-TgcScene.xml");
 	//this.scene = loader.loadSceneFromUrl("Media/models/Triangle/Triangle-TgcScene.xml");
-	//this.scene = loader.loadSceneFromUrl("Media/models/Deposito/Deposito-TgcScene.xml");
-	this.scene = loader.loadSceneFromUrl("Media/models/Sector-Area1/Scene-TgcScene.xml");
+	this.scene = loader.loadSceneFromUrl("Media/models/Deposito/Deposito-TgcScene.xml");
+	//this.scene = loader.loadSceneFromUrl("Media/models/Sector-Area1/Scene-TgcScene.xml");
 	
 	
 	//Camara FPS

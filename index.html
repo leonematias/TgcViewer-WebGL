@@ -7,12 +7,12 @@
 
 
 
-<!-- Dependencias de terceros -->
+<!-- Third-party libraries -->
 <script type="text/javascript" src="TgcViewer/Lib/gl-matrix/gl-matrix.js"></script>
 <script type="text/javascript" src="TgcViewer/Lib/jquery/jquery-1.6.1.js"></script>
 
 
-<!-- Librerias del Framework -->
+<!-- Engine libraries -->
 
 <!-- Utils -->
 <script type="text/javascript" src="TgcViewer/Utils/GuiController.js"></script>
@@ -62,19 +62,19 @@
 
 
 
-<!-- Ejemplos -->
+<!-- Examples -->
 <script type="text/javascript" src="Examples/example1.js"></script>
 <script type="text/javascript" src="Examples/example2.js"></script>
 <script type="text/javascript" src="Examples/example3.js"></script>
 
 
 
-<!-- Codigo principal -->
+<!-- Main code -->
 <script type="text/javascript">
 
 	window.onload = function() {
 	
-		//Crear ejemplos
+		//Create example
 		var examples = [
 			new Example1(),
 			new Example2(),
@@ -82,13 +82,18 @@
 		];
 	
 	
-		//Iniciar engine
+		//Init engine
 		GuiController.NewInstance();
 		
-		//Pasar ejemplos e indicar indice de ejemplo inicial a ejecutar
-		GuiController.Instance.initGraphics("canvasElement", examples, 1);
+		//Set default example
+		GuiController.Instance.initGraphics("canvasElement", examples, 0);
 		
 		
+	}
+	
+	function changeExample() {
+		var index = document.getElementById("exampleComboBox").value;
+		GuiController.Instance.setCurrentExample(index);
 	}
 
 
@@ -104,6 +109,12 @@
 	<span style="color:yellow; font-weight:bold;">FPS: </span>
 	<span id="fpsCounter" style="color: yellow; font-weight:bold;">0</span>
 
+	<!-- Example comboBox -->
+	<select id="exampleComboBox" onchange="changeExample();" onfocus="this.selectedIndex=-1;this.blur();">
+	  <option value="0">Example 1</option>
+	  <option value="1">Example 2</option>
+	</select>
+	
 	<!--CANVAS-->
     <canvas id="canvasElement" style="border: none; display: block; margin: 0 auto;" width="800" height="600"></canvas>
 	

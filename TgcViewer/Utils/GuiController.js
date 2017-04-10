@@ -193,9 +193,15 @@ GuiController.prototype.initGraphics = function(canvasID, examples, defaultExamp
 	
 	//Iniciar ejemplo
 	this.examples = examples;
-	this.currentExample = this.examples[defaultExampleIndex];
-	this.currentExample.init();
+	//this.setCurrentExample(defaultExampleIndex);
 	this.queueNewFrame();
+}
+
+GuiController.prototype.setCurrentExample = function(exampleIndex) {
+	this.currentExample = undefined;
+	var example = this.examples[exampleIndex];
+	example.init();
+	this.currentExample = example;
 }
 
 /**
@@ -281,8 +287,9 @@ GuiController.prototype.render = function() {
 	this.currentCamera.updateViewMatrix();
 	
 	//Invocar ejemplo
-	this.currentExample.render(this.elapsedTime);
-	
+	if(this.currentExample != undefined) {
+		this.currentExample.render(this.elapsedTime);
+	}
 	
 	//Pedir siguiente cuadro
 	this.queueNewFrame();

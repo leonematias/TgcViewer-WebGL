@@ -193,7 +193,7 @@ GuiController.prototype.initGraphics = function(canvasID, examples, defaultExamp
 	
 	//Iniciar ejemplo
 	this.examples = examples;
-	//this.setCurrentExample(defaultExampleIndex);
+	this.setCurrentExample(defaultExampleIndex);
 	this.queueNewFrame();
 }
 
